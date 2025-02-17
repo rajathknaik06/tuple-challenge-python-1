@@ -1,0 +1,42 @@
+""" Emily is a librarian who keeps track of books borrowed and returned by her patrons. She maintains four sets of book IDs: the first set represents books borrowed, the second set represents books returned, the third set represents books added to the collection, and the fourth set represents books that are now missing. Emily wants to determine which books are still borrowed but not returned, as well as those that were added but are now missing. Finally, she needs to find all unique book IDs from both results.
+
+
+
+Help Emily by writing a program that performs the following operations on four sets of integers:
+
+Compute the difference between the borrowed books (first set) and the returned books (second set).
+Compute the difference between the added books (third set) and the missing books (fourth set).
+Find the union of the results from the previous two steps, and sort the final result in descending order.
+Input format :
+The first line of input consists of a list of integers representing borrowed books.
+
+The second line of input consists of a list of integers representing returned books.
+
+The third line of input consists of a list of integers representing added books.
+
+The fourth line of input consists of a list of integers representing missing books.
+
+Output format :
+The first line of output displays the difference between sets P and Q, sorted in descending order.
+
+The second line of output displays the difference between sets R and S, sorted in descending order.
+
+The third line of output displays the union of the differences from the previous two steps, sorted in descending order."""
+
+# Read input sets
+P = set(map(int, input().split()))
+Q = set(map(int, input().split()))
+R = set(map(int, input().split()))
+S = set(map(int, input().split()))
+
+# Compute differences
+diff1 = P - Q
+diff2 = R - S
+
+# Compute union of differences
+union_diff = diff1.union(diff2)
+
+# Output results in descending order
+print(f"{sorted(diff1, reverse=True)}")
+print(f"{sorted(diff2, reverse=True)}")
+print(f"{sorted(union_diff, reverse=True)}")
